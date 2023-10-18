@@ -1,95 +1,23 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+// src/app/page.js
+import styles from './page.module.css';
+import Catalog from './components/Catalog';
+import Carousel from './components/Carousel';
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <div className={styles.container}>
+      <Carousel />
+
+      <div className="container">
+        <h1 className={styles.title}>80 Level Cloud Experiences</h1>
+        <p><Link href="#">Lorem ipsum, dolor sit amet consectetur</Link> adipisicing elit. Unde blanditiis, nisi! Quo nobis quis adipisci, accusamus deleniti molestias praesentium laudantium necessitatibus facere dolores vel odio inventore beatae incidunt totam cupiditate qui impedit quibusdam reprehenderit ut corporis quasi magni in illum. Quidem repellat aspernatur recusandae optio provident repudiandae fuga vitae eius atque nemo fugit voluptas ipsam quae at porro placeat, voluptate minima? Maxime facilis facere incidunt sed at voluptatibus dicta aliquam quasi amet impedit quisquam sit ab saepe molestias soluta neque, rem voluptas consequuntur, qui cumque tenetur mollitia blanditiis. Nulla repellendus vel nisi possimus rerum, facere accusamus velit doloribus explicabo accusantium.</p>
+        
+        <p><Link href="" className="button">Text</Link></p>
+        <p><Link href="" className="button-secondary">Text</Link></p>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      
+      <Catalog />
+    </div>
+  );
 }
