@@ -5,7 +5,7 @@ import styles from './Footer.module.css';
 const Footer = () => (
   <footer className={`${styles.footer} container`}>
     <Image
-        src={`/assets/images/80lv-footer-logo.svg`}
+        src={`/assets/images/80lv-logo.svg`}
         alt={`80lv Cloud Experiences`}
         width={271}
         height={36}

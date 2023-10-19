@@ -72,7 +72,7 @@ pre {
 
 /* Remove the grey background on active links in IE 10. */
 a {
-  display: inline-block;
+  /* display: inline-block; */
   background-color: transparent;
 }
 

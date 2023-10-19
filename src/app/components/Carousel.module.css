@@ -2,3 +2,223 @@
     
 
 }
+
+.slideWrapper {
+    position: relative;
+}
+.slideImage {
+    object-fit: cover;
+    height: 86vh !important;
+}
+@media (min-width: 768px) {
+    .slideImage {
+        min-height: 31.25rem;
+        height: 66vh !important;
+    }
+}
+@media (min-width: 1024px) {
+    .slideImage {
+        height: auto !important;
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: white;
+    padding: 0.625rem;
+    width: 100%;
+    max-width: 37.5rem;
+    text-align: center;
+}
+.overlayTitle {
+    font-size: 2.25rem;
+    line-height: 1.111;
+}
+@media (min-width: 768px) {
+    .overlayTitle {
+        font-size: 5rem;
+        line-height: 0.9524;
+        margin-bottom: 1.25rem;
+    }
+}
+.overlaySubtitle {
+    font-size: 0.875rem;
+    line-height: 1.57;
+    color: rgba(255,255,255,.45);
+    margin-bottom: 1.1rem;
+}
+@media (min-width: 768px) {
+    .overlaySubtitle {
+        font-size: 1.25rem;
+        line-height: 1.4;
+    }
+}
+
+.overlayExperience {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 3.5rem;
+    
+    width: 89%;
+}
+@media (min-width: 768px) {
+    .overlayExperience {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+}
+
+.experienceTitle {
+
+}
+@media (min-width: 768px) {
+    .experienceTitle {
+        width: 50%;
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+}
+@media (max-width: 767px) {
+    .experienceTitle .experiencePlayButton {
+        display: none;
+    }
+}
+.experienceHeader {
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    text-wrap: balance;
+}
+@media (min-width: 768px) {
+    .experienceHeader {
+        margin-bottom: 6.25rem;
+    }
+}
+
+
+.experienceContent {
+}
+@media (min-width: 768px) {
+    .experienceContent {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 50%;
+    }
+}
+@media (min-width: 768px) {
+    .experienceContent .experiencePlayButton {
+        display: none;
+    }
+}
+
+
+.experienceAuthor {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.authorIcon > a:hover {
+    opacity: 0.45;
+}
+.authorContent {
+    margin-left: 0.5rem;
+}
+.authorName {
+    font-size: 0.875rem;
+    line-height: 1.286;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+@media (min-width: 1024px) {
+    .authorName {
+        font-size: 1rem;
+        line-height: 1.25;
+    }
+}
+.authorName > a {
+    color: #fff;
+}
+.authorName > a:hover {
+    color: rgba(255,255,255,.45);
+}
+.authorSubtitle {
+    font-size: 0.75rem;
+    line-height: 1.3333;
+    color: rgba(255,255,255,.45);
+    margin-bottom: 0;
+}
+.experienceDescription {
+    margin-bottom: 1.25rem;
+}
+.descriptionContent {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+}
+@media (min-width: 1024px) {
+    .descriptionContent {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+}
+.moreButton {
+    font-size: 0.875rem;
+    line-height: 1.2857;
+}
+
+
+.experiencePlayButton {
+  transition: border 125ms, background-color 125ms, color 125ms;
+  text-decoration: none;
+  color: #fff;
+  background-color: var(--purple-color);
+  padding: 0.625rem 2.5rem;
+  border-radius: 1.75rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  font-weight: 500;
+  border: 1px solid rgba(0, 0, 0, 0);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.experiencePlayButton:hover {
+  background-color: #4f348e;
+  border: 1px solid rgba(0, 0, 0, 0.20);
+}
+.experiencePlayButton:active {
+  background-color: #000;
+  color: #fff;
+}
+
+
+.desktopImage {
+  display: block;
+}
+
+.mobileImage {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .desktopImage {
+    display: none;
+  }
+  .mobileImage {
+    display: block;
+  }
+}

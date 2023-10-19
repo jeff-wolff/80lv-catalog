@@ -1,0 +1,52 @@
+.header {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0.75rem 1.25rem;
+    min-height: 4rem;
+
+
+    
+}
+@media (min-width: 768px) {
+    .header {
+        padding: 0 1.25rem;
+    }
+}
+@media (min-width: 1024px) {
+    .header {
+        padding: 0 2.5rem;
+    }
+}
+@media (min-width: 1440px) {
+    .header {
+        padding: 0 5rem;
+    }
+}
+.logo a {
+    transition: 200ms opacity;
+}
+.logo a:hover {
+    opacity: 0.45;
+}
+
+.headerLogo {
+    margin-left: 0;
+    width: 11.3125rem;
+}
+@media (min-width: 1024px) {
+    .headerLogo {
+        width: 16.9375rem;
+    }
+}
+
+.uploadButton:hover {
+    color: rgba(0,0,0,.45);
+}
