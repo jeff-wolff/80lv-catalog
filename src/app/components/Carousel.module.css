@@ -1,6 +1,5 @@
 .carousel {
     
-
 }
 
 .slideWrapper {
@@ -18,7 +17,7 @@
 }
 @media (min-width: 1024px) {
     .slideImage {
-        height: auto !important;
+        /* height: auto !important; */
     }
 }
 

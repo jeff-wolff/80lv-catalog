@@ -14,7 +14,7 @@ const experiences = [
 
 const Catalog = () => {
   return (
-    <div className={`${styles.catalog} container`}>
+    <div className={`${styles.catalog}`}>
       {experiences.map((exp) => (
         <Card key={exp.id} title={exp.title} author={exp.author} />
       ))}

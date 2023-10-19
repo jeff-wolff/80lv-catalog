@@ -15,7 +15,7 @@ const Carousel = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className={`${styles.carousel} container`}>
       <swiper-container
         ref={swiperElRef}
         slides-per-view="1"

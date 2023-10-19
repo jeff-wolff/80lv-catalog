@@ -8,7 +8,10 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Carousel />
-      <Catalog />
+      <div className={`${styles.catalogContainer} container`}>
+        <p>Filter menu</p>
+        <Catalog />
+      </div>
     </div>
   );
 }
