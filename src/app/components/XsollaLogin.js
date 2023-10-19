@@ -9,6 +9,7 @@ const XsollaLogin = () => (
       locale={Locale.en_US}
       shortcutKeys={["ShiftLeft", "Tab"]}
       enabledOrbs={["blue"]}
+      autoLoginPopup={false}
     />
   </div>
 );

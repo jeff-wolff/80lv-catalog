@@ -71,6 +71,8 @@
   --accent-color: #EBF590;
   --purple-color: #3F257A;
   --container-width: 112.5rem;
+
+  --catalog-gap: 1.25rem;
 }
 
 
@@ -182,16 +184,17 @@ a:hover,
   margin-right: auto;
 }
 
+
 .xsolla {
-  margin-left: 6.875rem;
+  margin-left: 1rem;
 }
-@media (min-width: 1024px) {
-  .xsolla {
-    margin-left: 5.625rem;
-  } 
+
+#metaframeContainer {
+  position: static;
+  margin-right: -112px;
 }
-@media (min-width: 1440px) {
-  .xsolla {
-    margin-left: 3.125rem;
-  } 
+@media (min-width: 768px) {
+  #metaframeContainer {
+    margin-right: 0;
+  }
 }

@@ -102,9 +102,9 @@ const Carousel = () => {
         </swiper-slide>
         <swiper-slide key={`3`}>
           <div className={styles.slideWrapper}>
-            <Link href="https://80.lv/cgs/ancient-temple" target="_blank">
+            <Link href="https://80.lv/cgs/crypt-ruin-map" target="_blank">
               <Image
-                src={`/assets/images/ancient-temple.jpg`}
+                src={`/assets/images/crypt-ruin-map.jpg`}
                 alt={``}
                 width={1440}
                 height={600}
@@ -114,8 +114,8 @@ const Carousel = () => {
             </Link>
             <div className={styles.overlayExperience}>
               <div className={styles.experienceTitle}>
-                <h2 className={`${styles.overlayTitle} ${styles.experienceHeader}`}>Ancient temple</h2>
-                <div><a href="https://80.lv/cgs/ancient-temple/play" className={styles.experiencePlayButton} target="_blank">Log in and play</a></div>
+                <h2 className={`${styles.overlayTitle} ${styles.experienceHeader}`}>Crypt Ruin Map</h2>
+                <div><a href="https://80.lv/cgs/crypt-ruin-map/play" className={styles.experiencePlayButton} target="_blank">Log in and play</a></div>
               </div>
               <div className={styles.experienceContent}>
                 <div className={styles.experienceContentInner}>                  
@@ -132,7 +132,7 @@ const Carousel = () => {
                     <p className={styles.descriptionContent}>This project was a big adventure because I had a chance to get some photogrammetry scans directly in Cambodia. In my role, I did most of the photogrammetry scan assets and make them modular and game-ready, create whole foliage, and prepared a marketing video. This project was a big adventure because I had a chance to get some photogrammetry scans directly in Cambodia. In my role, I did most of the photogrammetry scan assets and make them modular and game-ready, create whole foliage, and prepared a marketing video.</p>
                     <Link href="#" className={styles.moreButton}>view more</Link>
                   </div>
-                  <a href="https://80.lv/cgs/ancient-temple/play" className={styles.experiencePlayButton} target="_blank">Log in and play</a>
+                  <a href="https://80.lv/cgs/crypt-ruin-map/play" className={styles.experiencePlayButton} target="_blank">Log in and play</a>
                 </div>
               </div>
             </div>

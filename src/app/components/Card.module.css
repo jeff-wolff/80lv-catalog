@@ -1,0 +1,64 @@
+.card {
+    width: calc(100% - var(--catalog-gap));
+}
+@media (min-width: 768px) {
+    .card {
+        width: calc(50% - var(--catalog-gap));
+    }
+}
+@media (min-width: 1280px) {
+    .card {
+        width: calc(33.333% - var(--catalog-gap));
+    }
+}
+@media (min-width: 1650px) {
+    .card {
+        width: calc(25% - var(--catalog-gap));
+    }
+}
+.cardImage {
+
+}
+.cardImage > a > img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 1.125rem;
+}
+
+.cardContentWrap {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.75rem;
+}
+
+.cardInfo {
+    display: flex;
+    align-items: center;
+}
+
+.cardContent {
+    margin-left: .5rem;
+}
+.cardTitle,
+.cardTitle > a {
+    font-size: 0.875rem;
+    line-height: 1.2857;
+    color: #fff;
+}
+.cardTitle > a:hover {
+    color: rgba(255,255,255,.45);
+}
+.cardAuthor {
+    color: rgba(255,255,255,.45);
+    font-size: 0.75rem;
+    line-height: 1.33;
+    margin-bottom: 0;
+}
+
+.cardMeta {
+    text-align: right;
+    color: rgba(255,255,255,.45);
+    font-size: 0.75rem;
+    line-height: 1.33;
+}
