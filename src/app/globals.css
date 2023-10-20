@@ -151,17 +151,16 @@ a:hover,
 }
 
 .button-icon {
-  transition: border 125ms, background-color 125ms, color 125ms;
+  transition: border 125ms, background-color 125ms, color 125ms, padding 250ms;
   text-decoration: none;
   color: #000;
   background-color: #fff;
-  padding: 0.25rem;
 
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
   border-radius: 1.75rem;
   font-size: 1rem;
   line-height: 1.2;
@@ -169,12 +168,23 @@ a:hover,
   border: 1px solid rgba(0, 0, 0, 0);
 }
 .button-icon:hover {
-  background-color: rgba(255,255,255,.45);
-  border: 1px solid rgba(0, 0, 0, 0.20);
+  /* background-color: rgba(255,255,255,.45); */
+  /* border: 1px solid rgba(0, 0, 0, 0.20); */
+  padding-right: 2.5rem;
+  color: #000;
 }
 .button-icon:active {
   background-color: #000;
   color: #fff;
+}
+.button-icon > span {
+  transition: padding 250ms, font-size 125ms;
+  font-size: 0;
+}
+.button-icon:hover > span {
+  padding: 0.625rem 0 0.625rem 2.5rem;
+  margin-right: 0.5rem;
+  font-size: inherit;
 }
 
 
