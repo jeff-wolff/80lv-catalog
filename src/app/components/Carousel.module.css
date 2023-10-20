@@ -157,6 +157,11 @@
 .experienceDescription {
     margin-bottom: 1.25rem;
 }
+@media (min-width: 768px) {
+    .experienceDescription {
+        margin-bottom: 0;
+    }
+}
 .descriptionContent {
     font-size: 0.875rem;
     line-height: 1.5;

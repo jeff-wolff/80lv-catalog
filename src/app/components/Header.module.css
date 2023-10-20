@@ -1,5 +1,5 @@
 .header {
-    position: absolute;
+    position: relative;
     width: 100%;
     left: 50%;
     transform: translateX(-50%);
@@ -22,6 +22,7 @@
 }
 @media (min-width: 1024px) {
     .header {
+        position: absolute;
         padding: 0 0 0 2.5rem;
     }
 }

@@ -10,6 +10,12 @@ const experiences = [
   { id: 4, title: 'Cloud Experience 4', author: 'Author 4' },
   { id: 5, title: 'Cloud Experience 5', author: 'Author 5' },
   { id: 6, title: 'Cloud Experience 6', author: 'Author 6' },
+  { id: 7, title: 'Cloud Experience 7', author: 'Author 7' },
+  { id: 8, title: 'Cloud Experience 8', author: 'Author 8' },
+  { id: 9, title: 'Cloud Experience 9', author: 'Author 9' },
+  { id: 10, title: 'Cloud Experience 10', author: 'Author 10' },
+  { id: 11, title: 'Cloud Experience 11', author: 'Author 11' },
+  { id: 12, title: 'Cloud Experience 12', author: 'Author 12' },
 ];
 
 const Catalog = () => {
