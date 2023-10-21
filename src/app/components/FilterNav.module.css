@@ -3,3 +3,29 @@
     align-items: center;
     margin-bottom: 1.25rem;
 }
+
+.filterNav > button {
+    margin-left: 0.25rem;
+}
+
+.searchBtn {
+    padding-left: 0.875rem;
+}
+.searchBtn:hover input {
+    width: 300px;
+}
+.searchBtn:active {
+    background: #393939;
+    color: #fff;
+}
+.searchBtn input {
+    transition: width 200ms;
+    border: none;
+    padding: 0;
+    color: #fff;
+    width: 0;
+    margin-left: 4px;
+}
+.searchBtn input:focus {
+    outline: none;
+}
