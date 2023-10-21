@@ -19,11 +19,62 @@
 .cardImage {
 
 }
+.cardImage > a {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.125rem;
+    display: block;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+/* @media (min-width: 768px) {
+    .cardImage > a {
+        height: 12.5rem;
+    }
+}
+@media (min-width: 1024px) {
+    .cardImage > a {
+        height: 16.25rem;
+    }
+}
+@media (min-width: 1440px) {
+    .cardImage > a {
+        height: 14.5rem;
+    }
+}
+@media (min-width: 1800px) {
+    .cardImage > a {
+        height: 13.875rem;
+    }
+} */
+
+.cardImage > a::after {
+    transition: background-color 200ms;
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0);
+    
+}
+
 .cardImage > a > img {
+    transition: transform 200ms;
     object-fit: cover;
     width: 100%;
     height: 100%;
-    border-radius: 1.125rem;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.cardImage > a:hover::after {
+    background-color: rgba(0,0,0,.2);
+}
+.cardImage > a:hover > img {
+    transform: scale(1.25);
 }
 
 .cardContentWrap {
@@ -39,7 +90,27 @@
 
 .cardContent {
     margin-left: .5rem;
+    margin-right: 0.75rem;
 }
+.cardIcon a {
+    display: block;
+    width: 32px;
+    height: 32px;
+}
+.cardIcon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+}
+
+.cardTitle {
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+}
+
 .cardTitle,
 .cardTitle > a {
     font-size: 0.875rem;
@@ -54,6 +125,11 @@
     font-size: 0.75rem;
     line-height: 1.33;
     margin-bottom: 0;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
 }
 
 .cardMeta {
@@ -61,4 +137,5 @@
     color: rgba(255,255,255,.45);
     font-size: 0.75rem;
     line-height: 1.33;
+    min-width: fit-content;
 }

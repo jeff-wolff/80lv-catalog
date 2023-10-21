@@ -2,6 +2,7 @@
 import styles from './page.module.css';
 import Catalog from './components/Catalog';
 import Carousel from './components/Carousel';
+import FilterNav from './components/FilterNav';
 import Link from 'next/link';
 
 export default function Home() {
@@ -9,7 +10,7 @@ export default function Home() {
     <div className={styles.container}>
       <Carousel />
       <div className={`${styles.catalogContainer} container`}>
-        <p>Filter menu</p>
+        <FilterNav />
         <Catalog />
       </div>
     </div>

@@ -4,11 +4,11 @@ import styles from './Catalog.module.css';
 
 // Dummy data for now
 const experiences = [
-  { id: 1, title: 'Cloud Experience 1', author: 'Author 1' },
-  { id: 2, title: 'Cloud Experience 2', author: 'Author 2' },
-  { id: 3, title: 'Cloud Experience 3', author: 'Author 3' },
-  { id: 4, title: 'Cloud Experience 4', author: 'Author 4' },
-  { id: 5, title: 'Cloud Experience 5', author: 'Author 5' },
+  { id: 1, title: 'Crypt Ruin Map', author: 'Scans Factory', authorImage: 'https://cdn.xsolla.net/cloud-gaming-bucket-prod/4fe02ddd-abf9-4719-865b-fa5c5d9db80e.png', image: 'https://cdn.xsolla.net/cloud-gaming-bucket-prod/65194f9b-cec0-428e-a6af-cd24a6ee9c3a.jpg', path: 'crypt-ruin-map' },
+  { id: 2, title: 'Ancient Temple', author: 'Scans Factory', authorImage: 'https://cdn.xsolla.net/cloud-gaming-bucket-prod/5afce749-fb36-43e3-8f61-7256a4a861cf.png', image: 'https://cdn.xsolla.net/cloud-gaming-bucket-prod/b7798414-554e-4c13-9057-14baf48b17c3.jpg', path: 'ancient-temple' },
+  { id: 3, title: 'Bazaar', author: 'Denis Rutkovsky', authorImage: 'https://cdn.xsolla.net/cloud-gaming-bucket-prod/e74fbc20-5600-4712-b533-b1e547de8bfe.png', image: 'https://cdn.xsolla.net/cloud-gaming-bucket-prod/31de1e1d-aa53-46f8-bf7a-b4a2167d4cb1.jpg', path: 'bazaar' },
+  { id: 4, title: 'Cyber Scrapyard', author: 'Denis Rutkovsky', authorImage: 'https://cdn.xsolla.net/cloud-gaming-bucket-prod/e74fbc20-5600-4712-b533-b1e547de8bfe.png', image: 'https://cdn.xsolla.net/cloud-gaming-bucket-prod/be3254ee-0223-4b00-b90f-cf0d3447be9f.jpg', path: 'cyber-scrapyard' },
+  { id: 5, title: 'Zen Serenity-Exploring a Serene Japanese Temple with Tori Gate', author: 'Ratandeep Kaur', authorImage: 'https://cdn.xsolla.net/cloud-gaming-bucket-prod/b2f8ce9e-dfca-4ad6-802a-faf7db0ec980.png', image: 'https://cdn.xsolla.net/cloud-gaming-bucket-prod/36f3828d-968f-4ac5-81df-1ce9af2ef247.jpg', path: 'zen-serenityexploring-a-serene-japanese-temple-with-tori-gate' },
   { id: 6, title: 'Cloud Experience 6', author: 'Author 6' },
   { id: 7, title: 'Cloud Experience 7', author: 'Author 7' },
   { id: 8, title: 'Cloud Experience 8', author: 'Author 8' },
@@ -22,7 +22,7 @@ const Catalog = () => {
   return (
     <div className={`${styles.catalog}`}>
       {experiences.map((exp) => (
-        <Card key={exp.id} title={exp.title} author={exp.author} />
+        <Card key={exp.id} title={exp.title} author={exp.author} authorImage={exp.authorImage} image={exp.image} path={exp.path} />
       ))}
     </div>
   );

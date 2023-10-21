@@ -7,12 +7,12 @@
 }
 .slideImage {
     object-fit: cover;
-    height: 86vh !important;
+    height: calc(75vh + 2.5rem) !important;
 }
 @media (min-width: 768px) {
     .slideImage {
         min-height: 31.25rem;
-        height: 66vh !important;
+        height: calc(66vh + 5rem) !important;
     }
 }
 @media (min-width: 1024px) {
@@ -60,7 +60,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 3.5rem;
+    bottom: 6rem;
     
     width: 89%;
 }
@@ -68,6 +68,7 @@
     .overlayExperience {
         display: flex;
         flex-direction: row-reverse;
+        bottom: 8.5rem;
     }
 }
 
@@ -98,12 +99,23 @@
 }
 @media (min-width: 768px) {
     .experienceHeader {
+        margin-bottom: 2.5rem;
+    }  
+}
+@media (min-width: 1024px) {
+    .experienceHeader {
+        margin-bottom: 1.5rem;
+    }   
+}
+@media (min-width: 768px) and (min-height: 700px) {
+    .experienceHeader {
         margin-bottom: 6.25rem;
     }
 }
 
 
 .experienceContent {
+    
 }
 @media (min-width: 768px) {
     .experienceContent {
@@ -163,6 +175,7 @@
     }
 }
 .descriptionContent {
+    max-width: 415px;
     font-size: 0.875rem;
     line-height: 1.5;
     margin-bottom: 0;

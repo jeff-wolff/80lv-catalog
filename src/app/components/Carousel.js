@@ -12,6 +12,24 @@ const Carousel = () => {
   const swiperElRef = useRef(null);
 
   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        swiperElRef.current.style.setProperty("--swiper-pagination-bottom", "3.75rem");
+      } else {
+        swiperElRef.current.style.setProperty("--swiper-pagination-bottom", "6.25rem");
+      }
+    };
+  
+    // Initial setup
+    handleResize();
+  
+    // Listen for window resize events
+    window.addEventListener("resize", handleResize);
+  
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
@@ -28,7 +46,7 @@ const Carousel = () => {
           "--swiper-pagination-bullet-inactive-opacity": ".45",
           "--swiper-pagination-bullet-size": "0.5rem",
           "--swiper-pagination-bullet-horizontal-gap": "0.25rem",
-          "--swiper-pagination-bottom": "1.1875rem"
+          "--swiper-pagination-bottom": "6.25rem"
         }}
       >
         <swiper-slide key={`1`}>
