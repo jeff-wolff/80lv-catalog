@@ -1,0 +1,61 @@
+.stickyNav {
+    transition: 400ms ease;
+    transform: translateY(-100%);
+    position: fixed;
+    top: 0;
+    background: #000;
+    z-index: 98;
+    width: 100%;
+
+    padding: 0 1.25rem;
+    
+}
+
+@media (min-width: 1024px) {
+    .stickyNav {
+        padding: 0 2.5rem;
+    }
+}
+@media (min-width: 1440px) {
+    .stickyNav {
+        padding: 0 5rem;
+    }
+}
+.stickyNav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 64px;
+}
+.stickyNav .container > div:nth-child(1) {
+    width: 20%;
+}
+
+.stickyNav .container > div:nth-child(2) {
+    width: 80%;
+
+}
+
+.stickyFilterMobile {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+@media (min-width: 1024px) {
+    .stickyFilterMobile {
+        display: none;
+    }
+}
+
+.stickyFilterDesktop {
+    display: none;
+}
+@media (min-width: 1024px) {
+    .stickyFilterDesktop {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+}

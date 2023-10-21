@@ -35,7 +35,7 @@ const Card = ({ title, author, authorImage, image, path }) => (
         </div>
       </div>
       <div className={styles.cardMeta}>
-        00.0k<br />
+        <span className={styles.cardViews}><Image src={`/assets/images/icon-eye.svg`} alt={``} width={16} height={16} className={styles.cardViewsIcon} />&nbsp;00.0k</span><br />
         1 week ago
       </div>
     </div>

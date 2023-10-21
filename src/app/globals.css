@@ -207,19 +207,6 @@ a:hover,
   color: #000;
 }
 
-/* .button-icon.button-filter {
-  padding: 0;
-  color: #fff;
-}
-.button-icon.button-filter:hover {
-  padding-right: 1rem;
-}
-.button-icon.button-filter:hover > span {
-  padding: 0.625rem 0 0.625rem 1rem;
-}
-.button-icon.button-filter:active {
-  color: #000;
-} */
 
 .container {
   max-width: var(--container-width);

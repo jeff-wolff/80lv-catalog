@@ -2,6 +2,7 @@ import './reset.css'
 import './globals.css'
 import Header from './components/Header';
 import Footer from './components/Footer';
+import StickyNav from './components/StickyNav';
 
 export const metadata = {
   title: 'catalog - 80 level',
@@ -13,6 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Header />
+        <StickyNav />
         {children}
         <Footer />
       </body>

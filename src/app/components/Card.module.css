@@ -139,3 +139,12 @@
     line-height: 1.33;
     min-width: fit-content;
 }
+
+.cardViews {
+
+}
+
+.cardViewsIcon {
+    display: inline;
+    vertical-align: text-top;
+}

@@ -1,7 +1,7 @@
 .filterNav {
     display: flex;
     align-items: center;
-    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
 }
 
 .filterNav > button {
@@ -11,8 +11,11 @@
 .searchBtn {
     padding-left: 0.875rem;
 }
-.searchBtn:hover input {
-    width: 300px;
+@media (hover: hover) {
+    .searchBtn:hover input {
+        width: 180px;
+        max-width: 300px;
+    }
 }
 .searchBtn:active {
     background: #393939;
