@@ -3,12 +3,17 @@
     transform: translateY(-100%);
     position: fixed;
     top: 0;
+    left: 0;
     background: #000;
     z-index: 98;
     width: 100%;
 
     padding: 0 1.25rem;
     
+}
+
+.stickyNav.stickyNavOpen {
+    transform: translateY(0);
 }
 
 @media (min-width: 1024px) {
@@ -28,13 +33,15 @@
     width: 100%;
     min-height: 64px;
 }
-.stickyNav .container > div:nth-child(1) {
-    width: 20%;
-}
-
-.stickyNav .container > div:nth-child(2) {
-    width: 80%;
-
+@media (min-width: 1024px) {
+    .stickyNav .container > div:nth-child(1) {
+        width: 20%;
+    }
+    
+    .stickyNav .container > div:nth-child(2) {
+        width: 80%;
+    
+    }
 }
 
 .stickyFilterMobile {

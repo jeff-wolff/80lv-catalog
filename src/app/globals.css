@@ -212,6 +212,9 @@ a:hover,
   color: #000;
 }
 
+.button-icon-only {
+  padding: 0.5625rem;
+}
 
 .container {
   max-width: var(--container-width);

@@ -53,7 +53,7 @@ const Carousel = () => {
   }, []);
 
   return (
-    <div className={`${styles.carousel} container`}>
+    <div className={`${styles.carousel} container theCarousel`}>
       <swiper-container
         ref={swiperElRef}
         slides-per-view="1"
