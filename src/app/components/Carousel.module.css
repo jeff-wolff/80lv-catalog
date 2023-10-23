@@ -192,6 +192,10 @@
         line-height: 1.5;
     }
 }
+.experienceDescriptionExpanded .descriptionContent {
+    display: block;
+}
+
 .moreButton {
     font-size: 0.875rem;
     line-height: 1.2857;

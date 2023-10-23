@@ -1,15 +1,20 @@
 "use client"
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { register } from 'swiper/element/bundle';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Carousel.module.css';
 
-
 register();
 
 const Carousel = () => {
   const swiperElRef = useRef(null);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleAccordionToggle = (e) => {
+    e.preventDefault();
+    setIsExpanded(prevIsExpanded => !prevIsExpanded);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -19,16 +24,31 @@ const Carousel = () => {
         swiperElRef.current.style.setProperty("--swiper-pagination-bottom", "6.25rem");
       }
     };
+    
+    const handleMouseOver = () => {
+      // if (swiperElRef.current.swiper) {
+      //   swiperElRef.current.swiper.autoplay.stop();
+      // }
+    };
+
+    const handleMouseOut = () => {
+      if (swiperElRef.current.swiper) {
+        swiperElRef.current.swiper.autoplay.start();
+      }
+    };
+
+    swiperElRef.current.addEventListener('mouseover', handleMouseOver);
+    swiperElRef.current.addEventListener('mouseout', handleMouseOut);    
   
-    // Initial setup
     handleResize();
   
-    // Listen for window resize events
     window.addEventListener("resize", handleResize);
   
     // Cleanup
     return () => {
       window.removeEventListener("resize", handleResize);
+      // swiperElRef.current.removeEventListener('mouseover', handleMouseOver);
+      swiperElRef.current.removeEventListener('mouseout', handleMouseOut);
     };
   }, []);
 
@@ -40,6 +60,7 @@ const Carousel = () => {
         navigation="false"
         pagination='{"clickable": true}'
         loop="true"
+        autoplay='{"delay": 6000}'
         style={{
           "--swiper-pagination-color": "#FFF",
           "--swiper-pagination-bullet-inactive-color": "#FFF",
@@ -104,9 +125,11 @@ const Carousel = () => {
                       <p className={styles.authorSubtitle}>3D Artist</p>
                     </div>
                   </div>
-                  <div className={styles.experienceDescription}>
+                  <div className={`${styles.experienceDescription} ${isExpanded ? styles.experienceDescriptionExpanded : ''}`}>
                     <p className={styles.descriptionContent}>This project was a big adventure because I had a chance to get some photogrammetry scans directly in Cambodia. In my role, I did most of the photogrammetry scan assets and make them modular and game-ready, create whole foliage, and prepared a marketing video. This project was a big adventure because I had a chance to get some photogrammetry scans directly in Cambodia. In my role, I did most of the photogrammetry scan assets and make them modular and game-ready, create whole foliage, and prepared a marketing video.</p>
-                    <Link href="#" className={styles.moreButton}>view more</Link>
+                    <Link href="#" onClick={handleAccordionToggle} className={styles.moreButton}>
+                      {isExpanded ? 'view less' : 'view more'}
+                    </Link>
                   </div>
                   <a href="https://80.lv/cgs/ancient-temple/play" className={styles.experiencePlayButton} target="_blank">Log in and play</a>
                 </div>
@@ -142,9 +165,11 @@ const Carousel = () => {
                       <p className={styles.authorSubtitle}>3D Artist</p>
                     </div>
                   </div>
-                  <div className={styles.experienceDescription}>
+                  <div className={`${styles.experienceDescription} ${isExpanded ? styles.experienceDescriptionExpanded : ''}`}>
                     <p className={styles.descriptionContent}>This project was a big adventure because I had a chance to get some photogrammetry scans directly in Cambodia. In my role, I did most of the photogrammetry scan assets and make them modular and game-ready, create whole foliage, and prepared a marketing video. This project was a big adventure because I had a chance to get some photogrammetry scans directly in Cambodia. In my role, I did most of the photogrammetry scan assets and make them modular and game-ready, create whole foliage, and prepared a marketing video.</p>
-                    <Link href="#" className={styles.moreButton}>view more</Link>
+                    <Link href="#" onClick={handleAccordionToggle} className={styles.moreButton}>
+                      {isExpanded ? 'view less' : 'view more'}
+                    </Link>
                   </div>
                   <a href="https://80.lv/cgs/crypt-ruin-map/play" className={styles.experiencePlayButton} target="_blank">Log in and play</a>
                 </div>
