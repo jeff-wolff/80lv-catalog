@@ -8,7 +8,7 @@
     z-index: 98;
     width: 100%;
 
-    padding: 0 1.25rem;
+    
     
 }
 
@@ -16,22 +16,23 @@
     transform: translateY(0);
 }
 
-@media (min-width: 1024px) {
-    .stickyNav {
-        padding: 0 2.5rem;
-    }
-}
-@media (min-width: 1440px) {
-    .stickyNav {
-        padding: 0 5rem;
-    }
-}
 .stickyNav .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     min-height: 64px;
+    padding: 0 1.25rem;
+}
+@media (min-width: 1024px) {
+    .stickyNav .container {
+        padding: 0 2.5rem;
+    }
+}
+@media (min-width: 1440px) {
+    .stickyNav .container {
+        padding: 0 5rem;
+    }
 }
 @media (min-width: 1024px) {
     .stickyNav .container > div:nth-child(1) {
