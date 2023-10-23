@@ -7,6 +7,7 @@
 }
 .slideImage {
     object-fit: cover;
+    width: 100%;
     height: calc(75vh + 2.5rem) !important;
 }
 @media (min-width: 768px) {

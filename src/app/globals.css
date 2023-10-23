@@ -76,6 +76,7 @@ body {
   background: #000;
   color: #fff;
   font-family: 'Euclid', sans-serif;
+  overflow-x: hidden;
 }
 
 p {
@@ -163,11 +164,13 @@ a:hover,
   border: 1px solid rgba(0, 0, 0, 0);
   padding: 0;
 }
-.button-icon:hover {
-  /* background-color: rgba(255,255,255,.45); */
-  /* border: 1px solid rgba(0, 0, 0, 0.20); */
-  padding-right: 2.5rem;
-  color: #000;
+@media (hover: hover) {
+  .button-icon:hover {
+    /* background-color: rgba(255,255,255,.45); */
+    /* border: 1px solid rgba(0, 0, 0, 0.20); */
+    padding-right: 2.5rem;
+    color: #000;
+  }
 }
 .button-icon:active {
   background-color: #000;
@@ -177,10 +180,12 @@ a:hover,
   transition: padding 250ms, font-size 125ms;
   font-size: 0;
 }
-.button-icon:hover > span {
-  padding: 0.625rem 0 0.625rem 2.5rem;
-  margin-right: 0.5rem;
-  font-size: inherit;
+@media (hover: hover) {
+  .button-icon:hover > span {
+    padding: 0.625rem 0 0.625rem 2.5rem;
+    margin-right: 0.5rem;
+    font-size: inherit;
+  }
 }
 
 .button-filter {
@@ -217,14 +222,16 @@ a:hover,
 
 .xsolla {
   margin-left: 1rem;
+  min-width: 64px;
+  min-height: 64px;
 }
 
 #metaframeContainer {
-  position: static;
-  margin-right: -112px;
+  /* position: relative; */
 }
 @media (min-width: 768px) {
   #metaframeContainer {
+    position: static;
     margin-right: 0;
   }
 }

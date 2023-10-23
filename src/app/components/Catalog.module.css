@@ -4,10 +4,10 @@
     column-gap: var(--catalog-gap);
     row-gap: 2.5rem;
     margin-top: 1.25rem;
-    margin-right: calc(-1 * var(--catalog-gap));
 }
 @media (min-width: 768px) {
     .catalog {
+        margin-right: calc(-1 * var(--catalog-gap));
     }
 }
 @media (min-width: 1024px) {

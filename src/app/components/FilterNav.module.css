@@ -4,7 +4,7 @@
     flex-wrap: wrap;
 }
 
-.filterNav > button {
+.filterNav > button:not(:first-child) {
     margin-left: 0.25rem;
 }
 
