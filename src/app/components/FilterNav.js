@@ -13,15 +13,10 @@ const FilterNav = () => {
     };
 
     const handleClickOutside = (event) => {
-        const sortMenuElement = document.querySelector(`.${styles.sortFilterMenu}`);
-        const typeMenuElement = document.querySelector(`.${styles.typeFilterMenu}`);
-        const isOutsideSortMenu = sortMenuElement && !sortMenuElement.contains(event.target);
-        const isOutsideTypeMenu = typeMenuElement && !typeMenuElement.contains(event.target);
-        if (isOutsideSortMenu && isOutsideTypeMenu) {
+        if (menuRef.current && !menuRef.current.contains(event.target)) {
             setOpenMenu(null);
         }
     };
-
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);
         document.addEventListener('touchstart', handleClickOutside);

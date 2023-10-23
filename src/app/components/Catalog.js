@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './Card';
+import Image from 'next/image';
 import styles from './Catalog.module.css';
 
 // Dummy data for now
@@ -29,6 +30,12 @@ const experiences = [
 const Catalog = () => {
   return (
     <div className={`${styles.catalog}`}>
+      {/* Empty State */}
+      {/* <div className={styles.experienceNotFound}>
+        <Image src={`/assets/images/icon-notfound.svg`} width={72} height={72} alt={``} className={styles.experienceNotFoundIcon} />
+        <h3 className={styles.experienceNotFoundTitle}>Experiences not found</h3>
+        <p className={styles.experienceNotFoundContent}>No experiences were found matching your search. Try again</p>
+      </div> */}
       {experiences.map((exp) => (
         <Card key={exp.id} title={exp.title} author={exp.author} authorImage={exp.authorImage} image={exp.image} path={exp.path} />
       ))}
