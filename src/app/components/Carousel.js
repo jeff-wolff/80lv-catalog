@@ -114,7 +114,7 @@ const Carousel = () => {
             </Link>
             <div className={styles.overlayExperience}>
               <div className={styles.experienceTitle}>
-                <h2 className={`${styles.overlayTitle} ${styles.experienceHeader}`}>Ancient temple</h2>
+                <h2 className={`${styles.overlayTitle} ${styles.experienceHeader}`}>Ancient Temple</h2>
                 <div><a href="https://80.lv/cgs/ancient-temple/play" className={styles.experiencePlayButton} target="_blank">Log in and play</a></div>
               </div>
               <div className={styles.experienceContent}>
@@ -169,7 +169,7 @@ const Carousel = () => {
                     </div>
                   </div>
                   <div className={`${styles.experienceDescription} ${isExpanded ? styles.experienceDescriptionExpanded : ''}`}>
-                    <p className={styles.descriptionContent}>This project was a big adventure because I had a chance to get some photogrammetry scans directly in Cambodia. In my role, I did most of the photogrammetry scan assets and make them modular and game-ready, create whole foliage, and prepared a marketing video. This project was a big adventure because I had a chance to get some photogrammetry scans directly in Cambodia. In my role, I did most of the photogrammetry scan assets and make them modular and game-ready, create whole foliage, and prepared a marketing video.</p>
+                    <p className={styles.descriptionContent}>The Fantasy Chapel Ruins is an atmospheric environment designed for real-time use in the Unreal Engine, featuring stunning photogrammetry assets. This captivating scene comes to life with authentic lighting, immersive sounds, and eye-catching visual effects. This versatile setting not only provides an engaging backdrop for games but also holds potential for utilization in virtual production screens, expanding the horizons of interactive experiences.</p>
                     <Link href="#" onClick={handleAccordionToggle} className={styles.moreButton}>
                       {isExpanded ? 'view less' : 'view more'}
                     </Link>
