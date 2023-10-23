@@ -4,9 +4,41 @@
     flex-wrap: wrap;
 }
 
-.filterNav > button:not(:first-child) {
+
+.filterNavContainer {
+    position: relative;
+}
+.filterNavContainer:not(:first-child) {
     margin-left: 0.25rem;
 }
+
+.filterNavMenu {
+    display: none;
+    position: absolute;
+    top: 46px;
+    left: 0;
+    z-index: 9;
+    border-radius: 1.25rem;
+    background: #393939;
+    padding: 0.5rem;
+    width: 100%;
+    min-width: 200px;
+    max-width: 320px;
+}
+.filterNavMenu.open {
+    display: block;
+}
+.filterNavMenu li a {
+    display: inline-block;
+    padding: 0.5rem 0.625rem;
+    color: #fff;
+    width: 100%;
+}
+.filterNavMenu li a:hover {
+    border-radius: 0.875rem;
+    background-color: rgba(0,0,0,.2);
+}
+
 
 .searchBtn {
     padding-left: 0.875rem;

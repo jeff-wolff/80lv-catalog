@@ -1,11 +1,9 @@
-"use client"
+'use client';
 import { useRef, useEffect, useState } from 'react';
 import { register } from 'swiper/element/bundle';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Carousel.module.css';
-
-register();
 
 const Carousel = () => {
   const swiperElRef = useRef(null);
@@ -17,6 +15,9 @@ const Carousel = () => {
   };
 
   useEffect(() => {
+
+    register();
+
     const handleResize = () => {
       if (window.innerWidth < 768) {
         swiperElRef.current.style.setProperty("--swiper-pagination-bottom", "3.75rem");
@@ -78,6 +79,7 @@ const Carousel = () => {
               width={1440}
               height={600}
               className={`${styles.desktopImage} ${styles.slideImage}`}
+              priority={true}
             />
             <Image
               src={`/assets/images/slide-1-mobile.jpg`}
@@ -85,6 +87,7 @@ const Carousel = () => {
               width={1023}
               height={600}
               className={`${styles.mobileImage} ${styles.slideImage}`}
+              priority={true}
             />
             <div className={styles.overlay}>
               <h1 className={styles.overlayTitle}>80 Level Cloud Experiences</h1>
