@@ -146,6 +146,14 @@ a:hover,
   color: #000;
 }
 
+.button-tertiary {
+  background-color: #2B2B2B;
+  color: #fff;
+}
+.button-tertiary:hover {
+  background-color: #393939;
+}
+
 .button-icon {
   transition: border 125ms, background-color 125ms, color 125ms, padding 250ms;
   text-decoration: none;
