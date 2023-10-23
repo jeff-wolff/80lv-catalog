@@ -1,4 +1,5 @@
 .carousel {
+    min-height: 32.5rem;
     max-height: calc(75vh + 2.5rem);
     overflow: hidden;
 }
@@ -14,11 +15,11 @@
 .slideImage {
     object-fit: cover;
     width: 100%;
+    min-height: 32.5rem;
     height: calc(75vh + 2.5rem) !important;
 }
 @media (min-width: 768px) {
     .slideImage {
-        min-height: 31.25rem;
         height: calc(66vh + 5rem) !important;
     }
 }
