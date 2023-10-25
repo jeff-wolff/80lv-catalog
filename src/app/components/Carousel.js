@@ -61,7 +61,7 @@ const Carousel = () => {
         navigation="false"
         pagination='{"clickable": true}'
         loop="true"
-        autoplay='{"delay": 6000}'
+        autoplay='{"delay": 5000}'
         style={{
           "--swiper-pagination-color": "#FFF",
           "--swiper-pagination-bullet-inactive-color": "#FFF",
