@@ -7,7 +7,7 @@ const Footer = () => (
     <Image
         src={`/assets/images/80lv-logo.svg`}
         alt={`80lv Cloud Experiences`}
-        width={271}
+        width={272}
         height={36}
         className={styles.footerLogo}
     />

@@ -46,10 +46,6 @@
         display: flex;
     }
 }
-.label  {
-    color: rgba(255,255,255,.45);
-    margin-bottom: 0.25rem;
-}
 
 .socialContainer {
     display: flex;
@@ -73,6 +69,18 @@
     }
 }
 
+.label  {
+    color: rgba(255,255,255,.45);
+    margin-bottom: 0.25rem;
+    font-size: 0.875rem;
+    line-height: 1.2857;
+}
+.socialHref {
+    font-size: 0.875rem;
+    line-height: 1.2857;  
+}
+
+
 .legalContainer {
     color: rgba(255,255,255,.45);
 }
@@ -88,6 +96,7 @@
 .legalList {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 0.5rem;
 }
 @media (min-width: 768px) {
     .legalList {
@@ -107,6 +116,8 @@
     opacity: 200ms color;
     text-decoration: none;
     color: rgba(255,255,255,.45);
+    font-size: 0.875rem;
+    line-height: 1.2857;      
 }
 .legalLink:hover {
     color: #fff;
