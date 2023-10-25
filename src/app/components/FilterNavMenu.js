@@ -49,7 +49,10 @@ const FilterNavMenu = ({ isFilterMenuOpen, toggleFilterMenu }) => {
     <div className={`${styles.filterNavMenu} ${filterOpenClass}`}>
         <div className={mainClass}>
             <div className={styles.header}>
-                {/* Search */}
+                <form action="#" className={styles.search}>
+                    <label htmlFor="search" style={{ 'verticalAlign': 'middle' }}><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M2.16667 6.33333C2.16667 4.03215 4.03215 2.16667 6.33333 2.16667C8.63452 2.16667 10.5 4.03215 10.5 6.33333C10.5 8.63452 8.63452 10.5 6.33333 10.5C4.03215 10.5 2.16667 8.63452 2.16667 6.33333ZM6.33333 0.5C3.11167 0.5 0.5 3.11167 0.5 6.33333C0.5 9.55499 3.11167 12.1667 6.33333 12.1667C7.64361 12.1667 8.85299 11.7347 9.82681 11.0053L14.0774 15.2559C14.4028 15.5814 14.9305 15.5814 15.2559 15.2559C15.5814 14.9305 15.5814 14.4028 15.2559 14.0774L11.0053 9.82681C11.7347 8.85299 12.1667 7.64361 12.1667 6.33333C12.1667 3.11167 9.55499 0.5 6.33333 0.5Z" fill="currentColor"/></svg></label>
+                    <input type="text" name="search" id="search" placeholder="Search" />
+                </form>
             </div>
             <div className={styles.content}>
                 <h4 className={styles.filterNavTitle}>Filters</h4>

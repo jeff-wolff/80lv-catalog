@@ -13,7 +13,7 @@
     display: block;
 }
 .header {
-    margin-bottom: 10px;
+    margin-bottom: 13px;
     min-height: 56px;
     display: flex;
     align-items: center;
@@ -21,21 +21,46 @@
 .header .filterNavTitle {
     margin-bottom: 0;
 }
+.search {
+    position: relative;
+}
+.search label {
+    position: absolute;
+    top: 13px;
+    left: 0.625rem;
+    color: rgba(255,255,255,.2);
+}
+.search input {
+    width: calc(100vw - 40px);
+    max-width: 480px;
+    border-radius: 6.25rem;
+    background: #393939;
+    color: #fff;
+    border: 0;
+    padding-left: 2rem;
+    height: 40px;
+    font-size: 0.875rem;
+}
+.search input::placeholder {
+    color: rgba(255,255,255,.2);
+}
 .filterBackBtn {
+    padding-top: 1.5rem;
+
     padding-right: 1rem;
+    padding-bottom: 1.5rem;
 }
 .filterNavTitle {
     font-size: 1.25rem;
     line-height: 1.2;
     font-weight: 500;
 }
-.filterNavList {
+.filterNavList,
+.filterNavListSecond {
     max-width: 480px;
 }
-.filterNavList li {
-    margin-bottom: 0.5rem;
-}
-.filterNavList a {
+.filterNavList a,
+.filterNavListSecond a {
     background-image: url('../../../public/assets/images/icon-chevron-right.svg');
     background-repeat: no-repeat;
     background-position: center right;
@@ -44,25 +69,17 @@
     color: #fff;
     font-size: 0.875rem;
     line-height: 1.42857;
+    padding: 0.5rem 0;
 }
-.filterNavListSecond {
-    max-width: 480px;
-}
-.filterNavListSecond li {
-    margin-bottom: 0.5rem;
+.filterNavListSecond a {
+    background-image: none;
 }
 .filterNavListSecond a.active {
     background-image: url('../../../public/assets/images/icon-checkmark.svg');
     background-repeat: no-repeat;
     background-position: center right;
 }
-.filterNavListSecond a {
-    display: block;
-    width: 100%;
-    color: #fff;
-    font-size: 0.875rem;
-    line-height: 1.42857;
-}
+
 
 .filterNavMain {
     transition: transform 500ms ease;

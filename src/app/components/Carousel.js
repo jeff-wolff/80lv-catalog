@@ -7,11 +7,14 @@ import styles from './Carousel.module.css';
 
 const Carousel = () => {
   const swiperElRef = useRef(null);
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [expandedStates, setExpandedStates] = useState({}); 
 
-  const handleAccordionToggle = (e) => {
+  const handleAccordionToggle = (id, e) => { 
     e.preventDefault();
-    setIsExpanded(prevIsExpanded => !prevIsExpanded);
+    setExpandedStates(prevStates => ({
+      ...prevStates,
+      [id]: !prevStates[id]
+    }));
   };
 
   useEffect(() => {
@@ -128,10 +131,10 @@ const Carousel = () => {
                       <p className={styles.authorSubtitle}>3D Artist</p>
                     </div>
                   </div>
-                  <div className={`${styles.experienceDescription} ${isExpanded ? styles.experienceDescriptionExpanded : ''}`}>
+                  <div className={`${styles.experienceDescription} ${expandedStates['accordion1'] ? styles.experienceDescriptionExpanded : ''}`}>
                     <p className={styles.descriptionContent}>This project was a big adventure because I had a chance to get some photogrammetry scans directly in Cambodia. In my role, I did most of the photogrammetry scan assets and make them modular and game-ready, create whole foliage, and prepared a marketing video. This project was a big adventure because I had a chance to get some photogrammetry scans directly in Cambodia. In my role, I did most of the photogrammetry scan assets and make them modular and game-ready, create whole foliage, and prepared a marketing video.</p>
-                    <Link href="#" onClick={handleAccordionToggle} className={styles.moreButton}>
-                      {isExpanded ? 'view less' : 'view more'}
+                    <Link href="#" onClick={(e) => handleAccordionToggle('accordion1', e)} className={styles.moreButton}>
+                      {expandedStates['accordion1'] ? 'view less' : 'view more'}
                     </Link>
                   </div>
                   <a href="https://80.lv/cgs/ancient-temple/play" className={styles.experiencePlayButton} target="_blank">Log in and play</a>
@@ -168,10 +171,10 @@ const Carousel = () => {
                       <p className={styles.authorSubtitle}>3D Artist</p>
                     </div>
                   </div>
-                  <div className={`${styles.experienceDescription} ${isExpanded ? styles.experienceDescriptionExpanded : ''}`}>
+                  <div className={`${styles.experienceDescription} ${expandedStates['accordion2'] ? styles.experienceDescriptionExpanded : ''}`}>
                     <p className={styles.descriptionContent}>The Fantasy Chapel Ruins is an atmospheric environment designed for real-time use in the Unreal Engine, featuring stunning photogrammetry assets. This captivating scene comes to life with authentic lighting, immersive sounds, and eye-catching visual effects. This versatile setting not only provides an engaging backdrop for games but also holds potential for utilization in virtual production screens, expanding the horizons of interactive experiences.</p>
-                    <Link href="#" onClick={handleAccordionToggle} className={styles.moreButton}>
-                      {isExpanded ? 'view less' : 'view more'}
+                    <Link href="#" onClick={(e) => handleAccordionToggle('accordion2', e)} className={styles.moreButton}>
+                      {expandedStates['accordion2'] ? 'view less' : 'view more'}
                     </Link>
                   </div>
                   <a href="https://80.lv/cgs/crypt-ruin-map/play" className={styles.experiencePlayButton} target="_blank">Log in and play</a>

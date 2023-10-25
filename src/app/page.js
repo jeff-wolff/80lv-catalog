@@ -13,14 +13,16 @@ export default function Home() {
 
   const toggleFilterMenu = (e) => {
     e.preventDefault();
-    setIsFilterMenuOpen(prevState => {
-      if (!prevState) {
-        document.body.classList.add('no-scroll');
-      } else {
-        document.body.classList.remove('no-scroll');
-      }
-      return !prevState;
-    });
+    if (window.matchMedia("(max-width: 1023px)").matches) {
+      setIsFilterMenuOpen(prevState => {
+        if (!prevState) {
+          document.body.classList.add('no-scroll');
+        } else {
+          document.body.classList.remove('no-scroll');
+        }
+        return !prevState;
+      });
+    }
   };
 
   return (
@@ -29,7 +31,7 @@ export default function Home() {
       <StickyNav toggleFilterMenu={toggleFilterMenu} />
       <FilterNavMenu isFilterMenuOpen={isFilterMenuOpen} toggleFilterMenu={toggleFilterMenu} />
       <div className={`${styles.catalogContainer} container`}>
-        <FilterNav />
+        <FilterNav toggleFilterMenu={toggleFilterMenu} />
         <Catalog />
       </div>
     </div>
