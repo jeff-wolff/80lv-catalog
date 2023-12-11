@@ -4,12 +4,12 @@ import { Metaframe, Locale } from "@xsolla/metaframe-react-sdk";
 
 const XsollaLogin = () => (
   <div className={`xsolla`}>
-    <Metaframe
-      loginProjectId="230837"
-      locale={Locale.en_US}
-      enabledOrbs={["blue"]}
-      autoLoginPopup={false}
-    />
+      <Metaframe
+        loginProjectId="230837"
+        locale={Locale.en_US}
+        enabledOrbs={["blue"]}
+        autoLoginPopup={false}
+      />
   </div>
 );
 

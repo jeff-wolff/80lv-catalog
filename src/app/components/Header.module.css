@@ -41,11 +41,13 @@
 
 .headerLogo {
     margin-left: 0;
-    width: 11.3125rem;
+    width: 14rem;
+    height: 1.875rem;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
     .headerLogo {
         width: 17rem;
+        height: 2.25rem;
     }
 }
 .content {

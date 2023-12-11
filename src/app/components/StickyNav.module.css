@@ -46,13 +46,16 @@
 }
 
 .logo img {
-    max-width: 11.3125rem;
+    width: 14rem;
+    height: 1.875rem;
 }
 @media (min-width: 768px) {
     .logo img {
-        max-width: 17rem;
+        width: 17rem;
+        height: 2.25rem;
     }
 }
+
 
 .stickyFilterMobile {
     display: flex;

@@ -25,7 +25,7 @@ const Carousel = () => {
       if (window.innerWidth < 768) {
         swiperElRef.current.style.setProperty("--swiper-pagination-bottom", "3.75rem");
       } else {
-        swiperElRef.current.style.setProperty("--swiper-pagination-bottom", "6.25rem");
+        swiperElRef.current.style.setProperty("--swiper-pagination-bottom", "6rem");
       }
     };
     
@@ -52,7 +52,9 @@ const Carousel = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
       // swiperElRef.current.removeEventListener('mouseover', handleMouseOver);
-      swiperElRef.current.removeEventListener('mouseout', handleMouseOut);
+      if (swiperElRef.current) {
+        swiperElRef.current.removeEventListener('mouseout', handleMouseOut);
+      }
     };
   }, []);
 
@@ -71,7 +73,7 @@ const Carousel = () => {
           "--swiper-pagination-bullet-inactive-opacity": ".45",
           "--swiper-pagination-bullet-size": "0.5rem",
           "--swiper-pagination-bullet-horizontal-gap": "0.25rem",
-          "--swiper-pagination-bottom": "6.25rem"
+          "--swiper-pagination-bottom": "6rem"
         }}
       >
         <swiper-slide key={`1`}>
@@ -93,7 +95,7 @@ const Carousel = () => {
               priority={true}
             />
             <div className={styles.overlay}>
-              <h1 className={styles.overlayTitle}>80 Level Cloud Experiences</h1>
+              <h1 className={styles.overlayTitle}>80 Level<br /> 3D Metasites</h1>
               <p className={styles.overlaySubtitle}>Upload your real-time<br /> 3d experiences to our cloud for FREE</p>
               <p>
                 <a href="https://80.lv/cloud-experiences#start" className="button" target="_blank">
@@ -124,15 +126,15 @@ const Carousel = () => {
                 <div className={styles.experienceContentInner}>                  
                   <div className={styles.experienceAuthor}>
                     <div className={styles.authorIcon}>
-                      <Link href={`#`}><Image src={`/assets/images/no-profile.svg`} alt={``} width={40} height={40} /></Link>
+                      <Link href={`https://80.lv/cgs/ancient-temple/`}><Image src={`https://cdn.xsolla.net/cloud-gaming-bucket-prod/1c39ae79-7ccb-4a5f-939d-6db5dbe46e07.png`} alt={``} width={40} height={40} /></Link>
                     </div>
                     <div className={styles.authorContent}>
-                      <h4 className={styles.authorName}><Link href={`#`}>Scans Factory</Link></h4>
+                      <h4 className={styles.authorName}><Link href={`https://80.lv/cgs/ancient-temple/`}>Scans Factory</Link></h4>
                       <p className={styles.authorSubtitle}>3D Artist</p>
                     </div>
                   </div>
                   <div className={`${styles.experienceDescription} ${expandedStates['accordion1'] ? styles.experienceDescriptionExpanded : ''}`}>
-                    <p className={styles.descriptionContent}>This project was a big adventure because I had a chance to get some photogrammetry scans directly in Cambodia. In my role, I did most of the photogrammetry scan assets and make them modular and game-ready, create whole foliage, and prepared a marketing video. This project was a big adventure because I had a chance to get some photogrammetry scans directly in Cambodia. In my role, I did most of the photogrammetry scan assets and make them modular and game-ready, create whole foliage, and prepared a marketing video.</p>
+                    <p className={styles.descriptionContent}>This project was a big adventure because I had a chance to get some photogrammetry scans directly in Cambodia. In my role, I did most of the photogrammetry scan assets and make them modular and game-ready, create whole foliage, and prepared a marketing video.</p>
                     <Link href="#" onClick={(e) => handleAccordionToggle('accordion1', e)} className={styles.moreButton}>
                       {expandedStates['accordion1'] ? 'view less' : 'view more'}
                     </Link>
@@ -164,10 +166,10 @@ const Carousel = () => {
                 <div className={styles.experienceContentInner}>                  
                   <div className={styles.experienceAuthor}>
                     <div className={styles.authorIcon}>
-                      <Link href={`#`}><Image src={`/assets/images/no-profile.svg`} alt={``} width={40} height={40} /></Link>
+                      <Link href={`https://80.lv/cgs/crypt-ruin-map/`}><Image src={`https://cdn.xsolla.net/cloud-gaming-bucket-prod/1c39ae79-7ccb-4a5f-939d-6db5dbe46e07.png`} alt={``} width={40} height={40} /></Link>
                     </div>
                     <div className={styles.authorContent}>
-                      <h4 className={styles.authorName}><Link href={`#`}>Scans Factory</Link></h4>
+                      <h4 className={styles.authorName}><Link href={`https://80.lv/cgs/crypt-ruin-map/`}>Scans Factory</Link></h4>
                       <p className={styles.authorSubtitle}>3D Artist</p>
                     </div>
                   </div>

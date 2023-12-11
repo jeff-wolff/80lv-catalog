@@ -31,28 +31,9 @@
     display: block;
     height: 0;
     padding-bottom: 56.25%;
-    background-color: var(--dark-gray-color);
+    pointer-events: none;
+
 }
-/* @media (min-width: 768px) {
-    .cardImage > a {
-        height: 12.5rem;
-    }
-}
-@media (min-width: 1024px) {
-    .cardImage > a {
-        height: 16.25rem;
-    }
-}
-@media (min-width: 1440px) {
-    .cardImage > a {
-        height: 14.5rem;
-    }
-}
-@media (min-width: 1800px) {
-    .cardImage > a {
-        height: 13.875rem;
-    }
-} */
 
 .cardImage > a::after {
     transition: background-color 200ms;
@@ -76,12 +57,12 @@
     top: 0;
     left: 0;
 }
-.cardImage > a:hover::after {
+/* .cardImage > a:hover::after {
     background-color: rgba(0,0,0,.2);
 }
 .cardImage > a:hover > img {
     transform: scale(1.25);
-}
+} */
 
 .cardContentWrap {
     display: flex;
@@ -92,16 +73,19 @@
 .cardInfo {
     display: flex;
     align-items: center;
+    width: 75%;
 }
 
 .cardContent {
     margin-left: .5rem;
     margin-right: 0.75rem;
+    width: 100%;
 }
 .cardIcon a {
     display: block;
     width: 32px;
     height: 32px;
+    pointer-events: none;
 }
 .cardIcon img {
     width: 100%;
@@ -115,6 +99,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
+    width: 100%;
+    max-width: 240px;
+    max-height: 21px;
 }
 
 .cardTitle,
@@ -143,14 +130,45 @@
     color: rgba(255,255,255,.45);
     font-size: 0.75rem;
     line-height: 1.33;
-    min-width: fit-content;
+    width: 25%;
 }
 
 .cardViews {
-
+    display: block;
+    max-width: 60px;
+    width: 100%;
+    height: 14px;
+    margin-left: auto;
 }
 
-.cardViewsIcon {
-    display: inline;
-    vertical-align: text-top;
+.cardDate {
+    display: block;
+    max-width: 75px;
+    width: 100%;
+    height: 14px;
+    margin-left: auto;
+    margin-top: 3px;
+}
+
+.cardImage > a,
+.cardViews,
+.cardDate,
+.cardTitle,
+.cardIcon img {
+    background-color: var(--dark-gray-color);
+
+    animation-name: glimmer;
+    animation-duration: 1000ms;
+    animation-timing-function: steps(10, end);
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes glimmer {
+    0% {
+        opacity: 0.25;
+    }
+    100% {
+        opacity: 1;
+    }
 }

@@ -4,16 +4,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './FilterNavMenu.module.css';
 
-const FilterNavMenu = ({ isFilterMenuOpen, toggleFilterMenu }) => {
+const FilterNavMenu = ({ isFilterMenuOpen, toggleFilterMenu, onSortChange, sortOrder, onTypeFilterChange, typeFilter }) => {
   
     const [mainClass, setMainClass] = useState(styles.filterNavMain);
     const [sortClass, setSortClass] = useState(styles.filterNavSort);
     const [typeClass, setTypeClass] = useState(styles.filterNavType);
 
-
     const filterOpenClass = isFilterMenuOpen ? styles.filterNavMenuOpen : '';
-
-
     
     const handleSortClick = (e) => {
         e.preventDefault();
@@ -34,14 +31,14 @@ const FilterNavMenu = ({ isFilterMenuOpen, toggleFilterMenu }) => {
         setTypeClass(styles.filterNavType);
     };
 
-    // TODO, actually handle the links:
-    const handleLinkClick = (e) => {
+    const handleLinkClick = (e, sortOption) => {
         e.preventDefault();
         toggleFilterMenu(e);
+        onSortChange(sortOption);
         setMainClass(styles.filterNavMain);
         setSortClass(styles.filterNavSort);
         setTypeClass(styles.filterNavType);
-        document.body.classList.remove('no-scroll');  // Removes the no-scroll class from the body.
+        document.body.classList.remove('no-scroll');
     };
 
 
@@ -58,7 +55,7 @@ const FilterNavMenu = ({ isFilterMenuOpen, toggleFilterMenu }) => {
                 <h4 className={styles.filterNavTitle}>Filters</h4>
                 <ul className={styles.filterNavList}>
                     <li><Link href="#" className={styles.sortBtn} onClick={handleSortClick}>Sort by</Link></li>
-                    <li><Link href="#" className={styles.typeBtn} onClick={handleTypeClick}>Type</Link></li>
+                    {/* <li><Link href="#" className={styles.typeBtn} onClick={handleTypeClick}>Type</Link></li> */}
                 </ul>
             </div>
         </div>
@@ -71,12 +68,30 @@ const FilterNavMenu = ({ isFilterMenuOpen, toggleFilterMenu }) => {
             </div>
             <div className={styles.content}>
                 <ul className={styles.filterNavListSecond}>
-                    <li><Link href="#" onClick={handleLinkClick}>date ascending</Link></li>
-                    <li><Link href="#" onClick={handleLinkClick} className={styles.active}>date descending</Link></li>
+                    <li>
+                        <Link href="#" onClick={(e) => handleLinkClick(e, 'date_asc')} className={sortOrder === 'date_asc' ? styles.active : ''}>
+                            date (old to new)
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="#" onClick={(e) => handleLinkClick(e, 'date_desc')} className={sortOrder === 'date_desc' ? styles.active : ''}>
+                            date (new to old)
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="#" onClick={(e) => handleLinkClick(e, 'views_asc')} className={sortOrder === 'views_asc' ? styles.active : ''}>
+                            views (least popular)
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="#" onClick={(e) => handleLinkClick(e, 'views_desc')} className={sortOrder === 'views_desc' ? styles.active : ''}>
+                            views (most popular)
+                        </Link>
+                    </li>
                 </ul>
             </div>
         </div>
-        <div className={typeClass}>
+        {/* <div className={typeClass}>
             <div className={styles.header}>
                 <Link href="#" className={styles.filterBackBtn} onClick={handleBackClick}><Image src={`/assets/images/icon-chevron-left.svg`} alt={`Back`} width={8} height={12} /></Link>
                 <h4 className={styles.filterNavTitle}>
@@ -86,20 +101,20 @@ const FilterNavMenu = ({ isFilterMenuOpen, toggleFilterMenu }) => {
             <div className={styles.content}>
                 <ul className={styles.filterNavListSecond}>
                     <li>
-                        <Link href="#" onClick={handleLinkClick} className={styles.active}>experience</Link>
+                        <Link href="#" onClick={(e) => handleLinkClick(e, '', 'experience')} className={typeFilter === 'experience' ? styles.active : ''}>experience</Link>
                     </li>
                     <li>
-                        <Link href="#" onClick={handleLinkClick}>game</Link>
+                        <Link href="#" onClick={(e) => handleLinkClick(e, '', 'game')} className={typeFilter === 'game' ? styles.active : ''}>game</Link>
                     </li>
                     <li>
-                        <Link href="#" onClick={handleLinkClick}>3d asset</Link>
+                        <Link href="#" onClick={(e) => handleLinkClick(e, '', '3d asset')} className={typeFilter === '3d asset' ? styles.active : ''}>3d asset</Link>
                     </li>
                     <li>
-                        <Link href="#" onClick={handleLinkClick}>vfx</Link>
+                        <Link href="#" onClick={(e) => handleLinkClick(e, '', 'vfx')} className={typeFilter === 'vfx' ? styles.active : ''}>vfx</Link>
                     </li>
                 </ul>
             </div>
-        </div>
+        </div> */}
     </div>
 
     

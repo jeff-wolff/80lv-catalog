@@ -1,45 +1,155 @@
-import React from 'react';
+'use effect';
+import { useState, useEffect, useRef } from 'react';
 import Card from './Card';
-import Image from 'next/image';
+import CardLoading from './CardLoading';
+import EmptyState from './EmptyState';
 import styles from './Catalog.module.css';
 
-// Dummy data for now
-const experiences = [
-  { id: 1, title: 'Crypt Ruin Map', author: 'Scans Factory', authorImage: 'https://cdn.xsolla.net/cloud-gaming-bucket-prod/4fe02ddd-abf9-4719-865b-fa5c5d9db80e.png', image: 'https://cdn.xsolla.net/cloud-gaming-bucket-prod/65194f9b-cec0-428e-a6af-cd24a6ee9c3a.jpg', path: 'crypt-ruin-map' },
-  { id: 2, title: 'Ancient Temple', author: 'Scans Factory', authorImage: 'https://cdn.xsolla.net/cloud-gaming-bucket-prod/5afce749-fb36-43e3-8f61-7256a4a861cf.png', image: 'https://cdn.xsolla.net/cloud-gaming-bucket-prod/b7798414-554e-4c13-9057-14baf48b17c3.jpg', path: 'ancient-temple' },
-  { id: 3, title: 'Bazaar', author: 'Denis Rutkovsky', authorImage: 'https://cdn.xsolla.net/cloud-gaming-bucket-prod/e74fbc20-5600-4712-b533-b1e547de8bfe.png', image: 'https://cdn.xsolla.net/cloud-gaming-bucket-prod/31de1e1d-aa53-46f8-bf7a-b4a2167d4cb1.jpg', path: 'bazaar' },
-  { id: 4, title: 'Cyber Scrapyard', author: 'Denis Rutkovsky', authorImage: 'https://cdn.xsolla.net/cloud-gaming-bucket-prod/e74fbc20-5600-4712-b533-b1e547de8bfe.png', image: 'https://cdn.xsolla.net/cloud-gaming-bucket-prod/be3254ee-0223-4b00-b90f-cf0d3447be9f.jpg', path: 'cyber-scrapyard' },
-  { id: 5, title: 'Zen Serenity-Exploring a Serene Japanese Temple with Tori Gate', author: 'Ratandeep Kaur', authorImage: 'https://cdn.xsolla.net/cloud-gaming-bucket-prod/b2f8ce9e-dfca-4ad6-802a-faf7db0ec980.png', image: 'https://cdn.xsolla.net/cloud-gaming-bucket-prod/36f3828d-968f-4ac5-81df-1ce9af2ef247.jpg', path: 'zen-serenityexploring-a-serene-japanese-temple-with-tori-gate' },
-  { id: 6, title: 'Cloud Experience 6', author: 'Author 6' },
-  { id: 7, title: 'Cloud Experience 7', author: 'Author 7' },
-  { id: 8, title: 'Cloud Experience 8', author: 'Author 8' },
-  { id: 9, title: 'Cloud Experience 9', author: 'Author 9' },
-  { id: 10, title: 'Cloud Experience 10', author: 'Author 10' },
-  { id: 11, title: 'Cloud Experience 11', author: 'Author 11' },
-  { id: 12, title: 'Cloud Experience 12', author: 'Author 12' },
-  { id: 13, title: 'Cloud Experience 13', author: 'Author 13' },
-  { id: 14, title: 'Cloud Experience 14', author: 'Author 14' },
-  { id: 15, title: 'Cloud Experience 15', author: 'Author 15' },
-  { id: 16, title: 'Cloud Experience 16', author: 'Author 16' },
-  { id: 17, title: 'Cloud Experience 17', author: 'Author 17' },
-  { id: 18, title: 'Cloud Experience 18', author: 'Author 18' },
-  { id: 19, title: 'Cloud Experience 19', author: 'Author 19' },
-  { id: 20, title: 'Cloud Experience 20', author: 'Author 20' },
-];
+const Catalog = ({ sortOrder, typeFilter }) => {
+  const [experiences, setExperiences] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const loadingRef = useRef(null);
+  const [offset, setOffset] = useState(0);
+  const [totalItems, setTotalItems] = useState(0);
+  const limit = 12;
+  const debounceDelay = 300;
+  const initialLoadComplete = useRef(false);
 
-const Catalog = () => {
+  const fetchExperiences = async (offset) => {
+    try {
+      const response = await fetch(
+        `https://80.lv/api/main/cloud-experience/catalog?sort=${sortOrder}&limit=${limit}&offset=${offset}`
+      );
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      setTotalItems(data.totalAll);
+      return data;
+    } catch (e) {
+      throw e;
+    }
+  };
+
+  const loadMoreExperiences = () => {
+    const loadingRefOffset = -300;
+    const newOffset = offset + limit;
+    
+    if (
+      loadingRef.current &&
+      window.innerHeight + window.scrollY >= (loadingRef.current.offsetTop + loadingRefOffset) &&
+      !loading &&
+      experiences.length < totalItems
+    ) {
+      setLoading(true);
+  
+      fetchExperiences(newOffset)
+        .then((data) => {
+          setExperiences((prevExperiences) => [...prevExperiences, ...data.items]);
+          setOffset(newOffset);
+          setLoading(false);
+        })
+        .catch((e) => {
+          setError(e.message);
+          setLoading(false);
+        });
+    }
+  };
+
+
+  // Load more experiences when the user scrolls to the bottom of the page
+  useEffect(() => {
+    const debouncedLoadMore = debounce(loadMoreExperiences, debounceDelay);
+    window.addEventListener('scroll', debouncedLoadMore);
+    
+    // Fetch initial data only once during component initialization
+    if (!initialLoadComplete.current) {
+      fetchExperiences(offset)
+        .then((data) => {
+          setExperiences(data.items);
+          setLoading(false);
+          initialLoadComplete.current = true; // Mark initial load as complete
+        })
+        .catch((e) => {
+          setError(e.message);
+          setLoading(false);
+        });
+
+    }
+
+    return () => {
+      window.removeEventListener('scroll', debouncedLoadMore);
+    };
+  });
+
+  const debounce = (func, delay) => {
+    let timeout;
+    return function () {
+      const context = this;
+      const args = arguments;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        func.apply(context, args);
+      }, delay);
+    };
+  };
+
+  // Reset the catalog when sortOrder changes
+  useEffect(() => {
+    if (initialLoadComplete.current) {
+      setLoading(true);
+      setOffset(0);
+      fetchExperiences(0)
+        .then((data) => {
+          setExperiences(data.items);
+          setLoading(false);
+        })
+        .catch((e) => {
+          setError(e.message);
+          setLoading(false);
+        });
+    }
+  }, [sortOrder]);
+
+
+
+  if (error) return <div>Error: {error}</div>;
+
   return (
-    <div className={`${styles.catalog}`}>
-      {/* Empty State */}
-      {/* <div className={styles.experienceNotFound}>
-        <Image src={`/assets/images/icon-notfound.svg`} width={72} height={72} alt={``} className={styles.experienceNotFoundIcon} />
-        <h3 className={styles.experienceNotFoundTitle}>Experiences not found</h3>
-        <p className={styles.experienceNotFoundContent}>No experiences were found matching your search. Try again</p>
-      </div> */}
-      {experiences.map((exp) => (
-        <Card key={exp.id} title={exp.title} author={exp.author} authorImage={exp.authorImage} image={exp.image} path={exp.path} />
-      ))}
-    </div>
+    <>
+      <div className={`${styles.catalog}`}>
+        {typeFilter !== 'experience' ? (
+          <EmptyState />
+        ) : (
+          experiences.length > 0 ? (
+            experiences.map((exp, index) => (
+              <Card
+                key={`${exp.id}-${index}`}
+                title={exp.name}
+                author={exp.author.name}
+                authorImage={exp.author.image ? exp.author.image : exp.logo}
+                image={exp.cover}
+                path={exp.path}
+                views={exp.views}
+              />
+            ))
+          ) : (
+            <>
+              {loading ? (
+                <>
+                  {  [...Array(12)].map((_, index) => <CardLoading key={index} />)}
+                </>
+              ) : (
+                <EmptyState />
+              )}
+            </>
+          )
+        )}
+      </div>
+      <div className={styles.loadingRef} ref={loadingRef} />
+      {experiences.length < totalItems ? <div className={styles.twitterLoader} /> : null}
+    </>
   );
 };
 

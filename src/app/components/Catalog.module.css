@@ -18,40 +18,28 @@
     .catalog {
     }
 }
-.experienceNotFound {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+
+.loading {
+    min-height: 90vh;
 }
-.experienceNotFoundIcon {
-    margin-bottom: 2rem;
+.loadingRef {
+    height: 20px;
+    width: 100%;
 }
 
-.experienceNotFoundTitle {
-    font-size: 1.125rem;
-    line-height: 1.2222;
-    font-weight: 500;
-    color: rgba(255,255,255,.45);
-}
-@media (min-width: 1024px) {
-    .experienceNotFoundTitle {
-        font-size: 2rem;
-        line-height: 1.25;
+.twitterLoader {
+    width: 24px;
+    height: 24px;
+    border: 4px solid rgba(235,245,144,.4);
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    animation: rotate 0.7s linear infinite;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+  }
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
     }
-}
-.experienceNotFoundContent {
-    font-size: 0.875rem;
-    line-height: 1.57;
-    color: rgba(255,255,255,.45);
-}
-@media (min-width: 1024px) {
-    .experienceNotFoundContent {
-        font-size: 1rem;
-        line-height: 1.5;
-    }
-}
+  }

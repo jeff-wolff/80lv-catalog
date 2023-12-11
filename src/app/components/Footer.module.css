@@ -26,13 +26,16 @@
 }
 .footerLogo {
     margin-left: 0;
-    width: 11.3125rem;
+    width: 14rem;
+    height: 1.875rem;
 }
 @media (min-width: 768px) {
     .footerLogo {
-        width: 16.9375rem;
+        width: 17rem;
+        height: 2.25rem;
     }
 }
+
 .content {
     margin-top: 1.5rem;
 }

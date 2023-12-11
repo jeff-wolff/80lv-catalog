@@ -14,6 +14,7 @@ const Header = () => (
                 width={272}
                 height={36}
                 className={styles.headerLogo}
+                priority
             />
         </Link>
     </div>
