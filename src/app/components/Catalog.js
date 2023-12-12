@@ -33,7 +33,7 @@ const Catalog = ({ sortOrder, typeFilter }) => {
   };
 
   const loadMoreExperiences = () => {
-    const loadingRefOffset = -300;
+    const loadingRefOffset = 500;
     const newOffset = offset + limit;
     
     if (
@@ -148,7 +148,7 @@ const Catalog = ({ sortOrder, typeFilter }) => {
         )}
       </div>
       <div className={styles.loadingRef} ref={loadingRef} />
-      {experiences.length < totalItems ? <div className={styles.twitterLoader} /> : null}
+      {loading && experiences.length < totalItems ? <div className={styles.twitterLoader} /> : null}
     </>
   );
 };
