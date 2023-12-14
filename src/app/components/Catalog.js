@@ -1,4 +1,4 @@
-'use effect';
+'use client';
 import { useState, useEffect, useRef } from 'react';
 import Card from './Card';
 import CardLoading from './CardLoading';
