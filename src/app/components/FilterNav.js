@@ -1,12 +1,19 @@
 'use client';
-import React, { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+import { useState, useEffect, useRef } from 'react';
 import styles from './FilterNav.module.css';
 
-const FilterNav = ({ onSortChange, sortOrder, typeFilter, onTypeFilterChange }) => {
+const FilterNav = ({ onSortChange, sortOrder, typeFilter, onTypeFilterChange, onSearchQueryChange, searchQuery }) => {
     const [openMenu, setOpenMenu] = useState(null);  // 'sort', 'type', or null
     const menuRef = useRef(null);
+    
+    const debounce = (func, delay) => {
+        let inDebounce;
+        return function(...args) {
+            const context = this;
+            clearTimeout(inDebounce);
+            inDebounce = setTimeout(() => func.apply(context, args), delay);
+        };
+    };
 
     const toggleMenu = (menu) => {
         setOpenMenu((prevOpenMenu) => (prevOpenMenu === menu ? null : menu));
@@ -27,7 +34,17 @@ const FilterNav = ({ onSortChange, sortOrder, typeFilter, onTypeFilterChange }) 
         onTypeFilterChange(filterOption);
         toggleMenu(null);
     };
-        
+
+    const debouncedSearchQueryChange = useRef(debounce(onSearchQueryChange, 25)).current; 
+
+    const handleSearchChange = (event) => {
+        debouncedSearchQueryChange(event.target.value);
+    };
+
+    const handleSearchSubmit = (event) => {
+        event.preventDefault(); 
+    };
+
 
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);
@@ -131,13 +148,22 @@ const FilterNav = ({ onSortChange, sortOrder, typeFilter, onTypeFilterChange }) 
                 </ul>
             </div>
         </div>
-        <button 
-            className={`${styles.searchBtn} button-filter`}
-            style={{'marginLeft': '.25rem'}}
-        >
-            <form action="#">
-                <label htmlFor="search" style={{ 'verticalAlign': 'middle' }}><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M2.16667 6.33333C2.16667 4.03215 4.03215 2.16667 6.33333 2.16667C8.63452 2.16667 10.5 4.03215 10.5 6.33333C10.5 8.63452 8.63452 10.5 6.33333 10.5C4.03215 10.5 2.16667 8.63452 2.16667 6.33333ZM6.33333 0.5C3.11167 0.5 0.5 3.11167 0.5 6.33333C0.5 9.55499 3.11167 12.1667 6.33333 12.1667C7.64361 12.1667 8.85299 11.7347 9.82681 11.0053L14.0774 15.2559C14.4028 15.5814 14.9305 15.5814 15.2559 15.2559C15.5814 14.9305 15.5814 14.4028 15.2559 14.0774L11.0053 9.82681C11.7347 8.85299 12.1667 7.64361 12.1667 6.33333C12.1667 3.11167 9.55499 0.5 6.33333 0.5Z" fill="currentColor"/></svg></label>
-                <input type="text" name="search" id="search" />
+        <button className={`${styles.searchBtn} button-filter`}>
+            <form action="#" onSubmit={handleSearchSubmit}> 
+                <label 
+                    htmlFor="searchInput"
+                    style={{ 'verticalAlign': 'middle' }}>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M2.16667 6.33333C2.16667 4.03215 4.03215 2.16667 6.33333 2.16667C8.63452 2.16667 10.5 4.03215 10.5 6.33333C10.5 8.63452 8.63452 10.5 6.33333 10.5C4.03215 10.5 2.16667 8.63452 2.16667 6.33333ZM6.33333 0.5C3.11167 0.5 0.5 3.11167 0.5 6.33333C0.5 9.55499 3.11167 12.1667 6.33333 12.1667C7.64361 12.1667 8.85299 11.7347 9.82681 11.0053L14.0774 15.2559C14.4028 15.5814 14.9305 15.5814 15.2559 15.2559C15.5814 14.9305 15.5814 14.4028 15.2559 14.0774L11.0053 9.82681C11.7347 8.85299 12.1667 7.64361 12.1667 6.33333C12.1667 3.11167 9.55499 0.5 6.33333 0.5Z" fill="currentColor"/></svg>
+                </label>
+                <input 
+                    type="search"
+                    name="searchInput"
+                    id="searchInput"
+                    placeholder="Enter your search"
+                    autoComplete="off"
+                    value={searchQuery}
+                    onChange={handleSearchChange} 
+                    />
             </form>
         </button>
     </div>

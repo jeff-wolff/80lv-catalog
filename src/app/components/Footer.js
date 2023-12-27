@@ -45,7 +45,7 @@ const Footer = () => {
             </div>
             <div className={styles.legalContainer}>
                 <ul className={styles.legalList}>
-                    <li><a href="https://80.lv/cloud-experiences#start" className={styles.legalLink} target="_blank">About & Contact us</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+                    <li><a href="https://80.lv/cloud-experiences" className={styles.legalLink} target="_blank">About & Contact us</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
                     <li><a href="https://80.lv/privacy-policy/" className={styles.legalLink} target="_blank">Privacy policy</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
                     <li><a href="https://x.la/80lvgallery/DMCA_Policy.pdf?_xm=190649.286501129456451653" className={styles.legalLink} target="_blank">DMCA policy</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
                     <li><a href="https://docs.google.com/document/d/1gHu5kDqOW3nckYBWAboZJO3bfbO4eMFKQ-5wahnaHlc/edit?usp=sharing" className={styles.legalLink} target="_blank">Terms of use</a></li>

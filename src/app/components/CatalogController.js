@@ -9,6 +9,9 @@ import FilterNavMenu from './FilterNavMenu';
 export default function CatalogController() {
   const [sortOrder, setSortOrder] = useState('0');
   const [typeFilter, setTypeFilter] = useState('experience');
+  const [searchQuery, setSearchQuery] = useState(''); 
+  const [resetOffset, setResetOffset] = useState(false); 
+
   const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false);
   const catalogContainerRef = useRef(null);
 
@@ -30,6 +33,11 @@ export default function CatalogController() {
   const handleTypeFilterChange = (newTypeFilter) => {
     // console.log('Type changed to:', newTypeFilter);
     setTypeFilter(newTypeFilter);
+  };
+
+  const handleSearchQueryChange = (newQuery) => {
+    setSearchQuery(newQuery);
+    setResetOffset(true); 
   };
     
   const toggleFilterMenu = (e) => {
@@ -62,6 +70,7 @@ export default function CatalogController() {
         typeFilter={typeFilter}
         onSortChange={handleSortChange}
         onTypeFilterChange={handleTypeFilterChange}
+        onSearchQueryChange={handleSearchQueryChange}
       />
       <div ref={catalogContainerRef} className={`${styles.catalogContainer} container`}>
         <FilterNav 
@@ -69,11 +78,16 @@ export default function CatalogController() {
           typeFilter={typeFilter}
           onSortChange={handleSortChange}
           onTypeFilterChange={handleTypeFilterChange} 
+          onSearchQueryChange={handleSearchQueryChange}
+          searchQuery={searchQuery}          
         />
         <Catalog 
           sortOrder={sortOrder}
           typeFilter={typeFilter}
           onTypeFilterChange={handleTypeFilterChange} 
+          searchQuery={searchQuery} 
+          resetOffset={resetOffset}
+          onResetOffset={() => setResetOffset(false)} 
         />
       </div>
     </>

@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    gap: 12px 6px;
 }
 
 
@@ -9,7 +10,7 @@
     position: relative;
 }
 .filterNavContainer:not(:first-child) {
-    margin-left: 0.25rem;
+
 }
 
 .filterNavMenu {
@@ -53,12 +54,13 @@
 .searchBtn {
     padding-left: 0.875rem;
 }
-@media (hover: hover) {
-    .searchBtn:hover input {
-        width: 180px;
-        max-width: 300px;
-    }
+.searchBtn:hover input,
+.searchBtn input:focus,
+.searchBtn input:not(:placeholder-shown) {
+    width: 180px;
+    max-width: 300px;
 }
+
 .searchBtn:active {
     background: #393939;
     color: #fff;
@@ -69,7 +71,7 @@
     padding: 0;
     color: #fff;
     width: 0;
-    margin-left: 4px;
+    margin-left: 7px;
 }
 .searchBtn input:focus {
     outline: none;
